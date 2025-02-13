@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu</title>
+</head>
+<body>
+  <%- include('./partials/nav') %>
+  <h1>Full Menu</h1>
+  <% 
+    // Group the menu items by category
+    const mains = menu.filter(item => item.category === 'mains');
+    const desserts = menu.filter(item => item.category === 'desserts');
+    const sides = menu.filter(item => item.category === 'sides');
+  %>
+  <% if(mains.length) { %>
+    <h2>Mains</h2>
+    <ul>
+      <% mains.forEach(item => { %>
+        <li>
+          <strong><%= item.name %></strong> - $<%= item.price.toFixed(2) %> 
+          (Rating: <%= item.rating %>)<br>
+          <%= item.details %>
+        </li>
+      <% }); %>
+    </ul>
+  <% } %>
+
+  <% if(desserts.length) { %>
+    <h2>Desserts</h2>
+    <ul>
+      <% desserts.forEach(item => { %>
+        <li>
+          <strong><%= item.name %></strong> - $<%= item.price.toFixed(2) %> 
+          (Rating: <%= item.rating %>)<br>
+          <%= item.details %>
+        </li>
+      <% }); %>
+    </ul>
+  <% } %>
+
+  <% if(sides.length) { %>
+    <h2>Sides</h2>
+    <ul>
+      <% sides.forEach(item => { %>
+        <li>
+          <strong><%= item.name %></strong> - $<%= item.price.toFixed(2) %> 
+          (Rating: <%= item.rating %>)<br>
+          <%= item.details %>
+        </li>
+      <% }); %>
+    </ul>
+  <% } %>
+</body>
+</html>
