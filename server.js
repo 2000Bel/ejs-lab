@@ -1,12 +1,12 @@
 const express = require('express');
 const app = express();
 
+// Set EJS as the view engine
+app.set('view engine', 'ejs');
+
 app.get('/', (req, res) => {
     res.send('home', {restaurant:RESTAURANT});
   });  
-
-// Set EJS as the view engine
-app.set('view engine', 'ejs');
 
 const RESTAURANT = {
     name: 'The Green Byte Bistro',
